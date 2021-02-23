@@ -12,10 +12,14 @@ export class AppComponent {
   constructor(public dialog: MatDialog) { }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogDataComponent);
+    const dialogRef = this.dialog.open(DialogDataComponent, {
+      data: {
+        name: "Mith"
+      }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog closed`);
+      console.log(result);
     });
   }
 }
